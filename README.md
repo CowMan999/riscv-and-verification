@@ -123,21 +123,21 @@ ISA correctness:
 ## Repo Structure
 
 ```
-├── alu.sv                 # ALU
-├── alu_control.sv         # ALU op decode
-├── control_unit.sv        # Main control signal generation
-├── decoder.sv              # Instruction decode
-├── register_file.sv        # 32x32 register file
+├── alu.sv                   # ALU
+├── alu_control.sv           # ALU op decode
+├── control_unit.sv          # Main control signal generation
+├── decoder.sv               # Instruction decode
+├── register_file.sv         # 32x32 register file
 ├── data_mem.sv              # Data memory
 ├── instruction_mem.sv       # Instruction ROM
 ├── pc.sv                    # Program counter
 ├── cpu.sv                   # Top-level datapath
-├── cpu_imp.v                 # FPGA board wrapper
-├── cpu_tb.sv                 # RTL driver/monitor testbench
-├── program.hex                # Sample program image
-├── golden_model.py            # Python golden reference model
-├── gen_random_tests.py         # Constrained-random test generator
-└── compare_dumps.py            # Golden-model vs. RTL diff tool
+├── cpu_imp.v                # FPGA board wrapper
+├── cpu_tb.sv                # RTL driver/monitor testbench
+├── program.hex              # Sample program image
+├── golden_model.py          # Python golden reference model
+├── gen_random_tests.py      # Constrained-random test generator
+└── compare_dumps.py         # Golden-model vs. RTL diff tool
 ```
 
 ---
