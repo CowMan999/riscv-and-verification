@@ -81,9 +81,7 @@ compare_dumps.py  →  PASS / FAIL + first mismatch
 - Store data wasn't shifted into the correct byte lane before reaching memory, so
   `SB`/`SH` at a non-zero offset within a word wrote the wrong bits.
 
-- Waveform lining up with tb and golden model predicted output
-
-- `[MONITOR] t=155000 PC=000000a0 WRITE x1 = 00000002`
+- Waveform lining up with tb and golden model predicted output below (`[MONITOR] t=155000 PC=000000a0 WRITE x1 = 00000002`)
 
 ![Verification Flow](images/waveform.png)
 
@@ -111,7 +109,7 @@ ISA correctness:
   efficient distributed RAM.
 
 
-- Results of timing analysis after final modifications
+- Results of timing analysis after final modifications below
   
 ![Timing](images/timing.png)
 
