@@ -81,13 +81,12 @@ compare_dumps.py  →  PASS / FAIL + first mismatch
 - Store data wasn't shifted into the correct byte lane before reaching memory, so
   `SB`/`SH` at a non-zero offset within a word wrote the wrong bits.
 
-
-
-![Verification Flow](images/waveform.png)
-
 - Waveform lining up with tb and golden model predicted output
 
 - `[MONITOR] t=155000 PC=000000a0 WRITE x1 = 00000002`
+
+![Verification Flow](images/waveform.png)
+
 ---
 
 ## Hardware Implementation
@@ -97,7 +96,7 @@ Implemented on a **Xilinx Zynq-7020** (Z7-Lite dev board) using Vivado.
 - **Clock:** 50 MHz onboard oscillator
 - **I/O:** onboard push-button reset, onboard LEDs driven from register `x1`'s low bits
   (`assign leds = regs[1][1:0];`) as a physical "it's alive" indicator
-- **Result:** closed timing with **8.7 ns worst negative slack**
+- **Result:** closed timing with **4.08 ns worst negative slack**
 
 Getting the design to fit and close timing surfaced its own class of bugs, separate from
 ISA correctness:
@@ -111,13 +110,15 @@ ISA correctness:
   the read unconditional (`assign read_data = mem[location];`), restoring inference to
   efficient distributed RAM.
 
-![Timing](images/timing.png)
 
 - Results of timing analysis after final modifications
+  
+![Timing](images/timing.png)
 
-![Board](images/board.png)
 
 - LEDs lit based on program execution, `x1 = 32b'010` so LED 0 is off and LED 1 is on (GREEN IS LED 1, RED is POWER)
+  
+![Board](images/board.png)
 
 ---
 
